@@ -3,13 +3,26 @@
 <h1>Cats</h1>
 
 <div id="cats">
-  <% @cats.each do |cat| %>
-    <%= render cat %>
-    <p>
-      <%= link_to "Show this cat", cat %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cats.each do |cat| %>
+        <tr>
+          <%= render cat %>
+          <td><%= link_to "Show this cat", cat %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <%= paginate @cats%>
-
+<br>
 <%= link_to "New cat", new_cat_path %>
+<hr>
+<h3><%= link_to "return Home", root_path %></h3>
